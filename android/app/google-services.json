@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "51884873739",
+    "project_id": "etalon-ecb5c",
+    "storage_bucket": "etalon-ecb5c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:51884873739:android:d639cf130bece5442bcf0e",
+        "android_client_info": {
+          "package_name": "app.cohun.etalon"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "51884873739-8mk87k040edun9blq5lvq5eesk0d2sai.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRfhxXA8vvrr6eZ1Bb8h1U4zfmbLNuplQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "51884873739-8mk87k040edun9blq5lvq5eesk0d2sai.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "51884873739-6v5j5sa8hggqa2ui7kas23fbi1gtvrcv.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "app.cohun.etalon"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
