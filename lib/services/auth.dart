@@ -11,6 +11,15 @@ class AuthService {
         : null;
   }
 
+  Future<void> signOut() async {
+    try {
+      return await _auth.signOut();
+    } catch (e) {
+      print(e.toString());
+      return null;
+    }
+  }
+
   // auth change user stream
   Stream<MyUser> get user => _auth.authStateChanges().map(_createMyUser);
 
