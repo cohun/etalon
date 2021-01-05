@@ -54,11 +54,17 @@ class UserData extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          CircleAvatar(
-            radius: 80,
-            backgroundImage: NetworkImage('https://via.placeholder.com/150'),
-            backgroundColor: Colors.transparent,
-          ),
+          user.url != null
+              ? CircleAvatar(
+                  radius: 80,
+                  backgroundImage: NetworkImage(user.url),
+                  backgroundColor: Colors.transparent,
+                )
+              : CircleAvatar(
+                  radius: 80,
+                  child: Image.asset('lib/assets/images/MR_NOBODY.png'),
+                  backgroundColor: Colors.transparent,
+                ),
           SizedBox(
             height: 25,
           ),
