@@ -49,8 +49,13 @@
             <key>CFBundleURLSchemes</key>
             <array>
             <string>com.googleusercontent.apps.51884873739-6v5j5sa8hggqa2ui7kas23fbi1gtvrcv</string>
+            <string>fb446171303289867</string>
             </array>
         </dict>
     </array>
+    <key>FacebookAppID</key>
+    <string>446171303289867</string>
+    <key>FacebookDisplayName</key>
+    <string>etalon</string>
 </dict>
 </plist>

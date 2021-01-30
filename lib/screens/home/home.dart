@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:provider/provider.dart';
 import 'package:etalon/services/auth.dart';
@@ -6,10 +7,14 @@ import 'package:etalon/models/my_user.dart';
 
 class Home extends StatelessWidget {
   final _auth = AuthService();
+  String name = 'Nobody';
 
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<MyUser>(context);
+    final users = GetUserName(user.uid);
+    print('print: $users');
+
     return SafeArea(
       child: Container(
         child: Scaffold(
@@ -27,7 +32,7 @@ class Home extends StatelessWidget {
                   color: Colors.white,
                 ),
                 label: Text(
-                  'logout',
+                  'logout ${user.name}',
                   style: TextStyle(color: Colors.white),
                 ),
               ),
@@ -56,12 +61,12 @@ class UserData extends StatelessWidget {
         children: [
           user.url != null
               ? CircleAvatar(
-                  radius: 80,
+            radius: 60,
                   backgroundImage: NetworkImage(user.url),
                   backgroundColor: Colors.transparent,
                 )
               : CircleAvatar(
-                  radius: 80,
+            radius: 60,
                   child: Image.asset('lib/assets/images/MR_NOBODY.png'),
                   backgroundColor: Colors.transparent,
                 ),
@@ -75,6 +80,34 @@ class UserData extends StatelessWidget {
           Text('${user.uid}'),
         ],
       ),
+    );
+  }
+}
+
+class GetUserName extends StatelessWidget {
+  final String documentId;
+
+  GetUserName(this.documentId);
+
+  @override
+  Widget build(BuildContext context) {
+    CollectionReference users = FirebaseFirestore.instance.collection('users');
+
+    return FutureBuilder<DocumentSnapshot>(
+      future: users.doc(documentId).get(),
+      builder:
+          (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
+        if (snapshot.hasError) {
+          return Text("Something went wrong");
+        }
+
+        if (snapshot.connectionState == ConnectionState.done) {
+          Map<String, dynamic> data = snapshot.data.data();
+          return Text("Full Name: ${data['full_name']}");
+        }
+
+        return Text("loading");
+      },
     );
   }
 }
