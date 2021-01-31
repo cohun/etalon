@@ -94,8 +94,7 @@ class AuthService {
             } else if (e.code == 'wrong-password') {
               return AlertDialog(
                 title: Text('Sign in failed'),
-                content:
-                    Text('Wrong password provided for that user. ${e.code}'),
+                content: Text('Wrong password provided for that user.'),
                 actions: [
                   FlatButton(
                     onPressed: () => Navigator.of(context).pop(),
